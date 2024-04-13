@@ -1,16 +1,29 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react';
+import { useSongs } from '../hooks/useSongs';
 
 
 
 const PlayerItem = ({ title, src, id }: any) => {
+  const { currentSong, setCurrentSong, playMusic, toggleMusic, setIsPlaying } = useSongs();
+  useEffect(() => {
+    if (currentSong != null) {
+      playMusic(currentSong);
+    }
+    // eslint-disable-next-line
+  }, [currentSong]);
 
 
 
   return (
     <>
       <div className="player__item" onClick={() => {
-
+        if (currentSong === id) {
+          toggleMusic()
+        } else {
+          setIsPlaying(true)
+          setCurrentSong(id)
+        }
+        playMusic(id)
       }}>
         <svg
           width="17"

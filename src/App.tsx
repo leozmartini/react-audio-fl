@@ -1,13 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import PlayerItem from './components/playeritem';
 import Body from './components/body';
+import { SongsProvider } from './contexts/SongsContext';
 
 function App() {
   return (
     <>
-     <Body/>
+      <SongsProvider>
+        <Body />
+      </SongsProvider>
     </>
   );
 }
