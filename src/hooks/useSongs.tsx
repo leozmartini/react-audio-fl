@@ -34,8 +34,6 @@ export const useSongs = () => {
             song.currentTime = 0;
             song.pause();
         });
-
-        // context?.songs[context.currentSong].pause();
     }
 
     function pauseMusic() {
