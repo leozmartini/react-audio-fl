@@ -23,7 +23,6 @@ const PlayerItem = ({ title, src, id }: any) => {
           setIsPlaying(true)
           setCurrentSong(id)
         }
-        playMusic(id)
       }}>
         <svg
           width="17"
