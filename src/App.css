@@ -5,7 +5,7 @@ body {
 
 .player__item {
   background-color: #fde694;
-  max-width: 120px;
+  width: 250px;
   align-items: center;
   display: flex;
   margin-bottom: 20px;
@@ -34,6 +34,7 @@ body {
   border: none;
   padding: 10px 20px; 
   border-radius: 5px; 
+  width: 270px;
   font-size: 16px;
   cursor: pointer;
 }
