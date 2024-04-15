@@ -15,7 +15,7 @@ const songsData = [
     id: 2
   },
   {
-    title: 'So Os Loucos Sabem',
+    title: 'Só Os Loucos Sabem',
     src: 'songs/SoOsLoucosSabem.wav',
     id: 3
   },
