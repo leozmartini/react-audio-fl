@@ -3,10 +3,10 @@ import songsData from '../config/configdata';
 
 type SongsContextType = {
     songs: HTMLAudioElement[];
-    currentSong: any;
-    setCurrentSong: any;
+    currentSong: number | null;
+    setCurrentSong: Function;
     isPlaying: boolean;
-    setIsPlaying: any;
+    setIsPlaying: Function;
 }
 
 export const SongsContext = createContext<SongsContextType | undefined>(undefined);
@@ -17,7 +17,7 @@ interface SongsProviderProps {
 
 export const SongsProvider: React.FC<SongsProviderProps> = ({ children }) => {
     const [songs, setSongs] = useState<HTMLAudioElement[]>([]);
-    const [currentSong, setCurrentSong] = useState<any>(null);
+        const [currentSong, setCurrentSong] = useState<number | null>(null);
     const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
     useEffect(() => {
