@@ -13,21 +13,20 @@ export const useSongs = () => {
 
     function playMusic(audioIndex: number) {
         stopCurrentMusic().then(() => {
-            // Espera o audio atual terminar para tocar o próximo            
-            if (context?.songs[context?.currentSong] !== undefined) {
-                context?.songs[context?.currentSong].addEventListener('ended', () => {
+            // Espera o audio atual terminar para tocar o próximo
+            if (context?.songs[context?.currentSong ?? 0] !== null) {
+                context?.songs[context?.currentSong ?? 0].addEventListener('ended', () => {
                     if (context?.currentSong === context?.songs.length - 1) {
                         context?.setCurrentSong(0)
                     } else {
-                        context?.setCurrentSong(context?.currentSong + 1)
+                        context?.setCurrentSong(context?.currentSong ?? 0 + 1)
                     }
                 })
             }
             context?.setIsPlaying(true)
             context?.songs[audioIndex].play();
         })
-    }
-
+    }   
     async function stopCurrentMusic() {
         context?.setIsPlaying(false)
         context?.songs.forEach((song) => {
@@ -38,7 +37,7 @@ export const useSongs = () => {
 
     function pauseMusic() {
         context?.setIsPlaying(false)
-        context?.songs[context?.currentSong].pause();
+        context?.songs[context?.currentSong?? 0].pause();
     }
 
     function toggleMusic() {
@@ -47,7 +46,7 @@ export const useSongs = () => {
             pauseMusic();
         } else {
             context?.setIsPlaying(true)
-            context?.songs[context?.currentSong].play();
+            context?.songs[context?.currentSong?? 0].play();
         }
     }
 

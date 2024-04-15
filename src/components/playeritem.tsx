@@ -3,7 +3,7 @@ import { useSongs } from '../hooks/useSongs';
 
 
 
-const PlayerItem = ({ title, src, id }: any) => {
+const PlayerItem = ({ title, src, id }: { title: string, src: string, id: number }) => {
   const { currentSong, setCurrentSong, playMusic, toggleMusic, setIsPlaying } = useSongs();
   useEffect(() => {
     if (currentSong != null) {
